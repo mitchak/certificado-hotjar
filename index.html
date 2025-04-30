@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Certificado de Curso</title>
+
+  <!-- Hotjar Tracking Code -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:6388676,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1c5980;
+    }
+
+    .certificado {
+      display: none;
+      background-color: white;
+      padding: 30px;
+      margin-top: 40px;
+      border: 2px solid #3498db;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+    }
+
+    .insignia {
+      width: 80px;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .certificado h2 {
+      margin-top: 50px;
+      color: #2c3e50;
+    }
+
+    .certificado p {
+      font-size: 1.1em;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .fecha {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>Plataforma de Certificados</h1>
+  <p>Ingresa tu nombre completo:</p>
+  <input type="text" id="nombreUsuario" placeholder="Ej: Juan Pérez" />
+  <br />
+  <button onclick="generarCertificado()">Generar Certificado</button>
+
+  <div id="certificado" class="certificado">
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" class="insignia" alt="Insignia" />
+    <h2>Certificado de Finalización</h2>
+    <p>Este documento certifica que <strong id="nombreCertificado">[Nombre]</strong> ha completado satisfactoriamente el curso <em>Introducción a Hotjar</em>.</p>
+    <p class="fecha">Emitido el: <span id="fecha"></span></p>
+  </div>
+
+  <script>
+    function generarCertificado() {
+      const nombre = document.getElementById('nombreUsuario').value.trim();
+      if (nombre === "") {
+        alert("Por favor ingresa tu nombre.");
+        return;
+      }
+
+      const hoy = new Date().toLocaleDateString();
+      document.getElementById('nombreCertificado').textContent = nombre;
+      document.getElementById('fecha').textContent = hoy;
+      document.getElementById('certificado').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
